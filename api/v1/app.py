@@ -11,7 +11,7 @@ from api.v1.views import app_views
 
 app = Flask(__name__)
 
-#task 12
+# task 12
 # enable CORS and allow for origins:
 CORS(app, resources={r'/api/v1/*': {'origins': '0.0.0.0'}})
 
@@ -28,6 +28,8 @@ def teardown_engine(exception):
 
 # task 5
 # Error handlers for expected app behavior:
+
+
 @app.errorhandler(404)
 def not_found(error):
     '''
