@@ -6,6 +6,7 @@ from os import getenv
 import sqlalchemy
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
+import hashlib
 
 
 class User(BaseModel, Base):
@@ -23,7 +24,20 @@ class User(BaseModel, Base):
         password = ""
         first_name = ""
         last_name = ""
-
+    
+    # task 14
     def __init__(self, *args, **kwargs):
         """initializes user"""
+        if kwargs:
+            # Check if 'password' is a key in the keyword arguments (kwargs)
+            pwd = kwargs.pop('password', None)
+            if pwd:
+                # Check an MD5 hash object
+                secure = hashlib.md5()
+                # Update the hash with the encoded password
+                secure.update(pwd.encode("utf-8"))
+                # Get the hex digest of the hash
+                secure_password = secure.hexdigest()
+                # Update the 'password' key in kwargs with the hashed password
+                kwargs['password'] = secure_password
         super().__init__(*args, **kwargs)
