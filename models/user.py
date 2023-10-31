@@ -24,7 +24,7 @@ class User(BaseModel, Base):
         password = ""
         first_name = ""
         last_name = ""
-    
+
     # task 14
     def __init__(self, *args, **kwargs):
         """initializes user"""
