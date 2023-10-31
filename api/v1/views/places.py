@@ -164,6 +164,7 @@ def bad_request(error):
     return jsonify(response), 400
 
 
+# task 15
 # New endpoint: POST /api/v1/places_search
 @app_views.route('/places_search', methods=['POST'], strict_slashes=False)
 def places_search():
