@@ -97,7 +97,7 @@ class TestFileStorage(unittest.TestCase):
         get_instance = storage.get(State, instance.id)
         self.assertEqual(get_instance, instance)
 
-    def test_count9self):
+    def test_count(self):
         """ Tests count method db storage"""
         storage = DBStorage()
         dic = {"name": "Vecindad"}
